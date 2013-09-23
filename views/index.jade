@@ -1,0 +1,28 @@
+extends layout
+
+block content
+	if (!user)
+		h2 Welcome! Please log in.
+	else
+		h2 
+			| Hello,
+			= ' ' + user.displayName
+
+		h1= title
+		div(id="emp_list")
+			span(data-bind="text: sample()")
+			table
+				thead
+					tr
+						td 
+							| Name
+						td
+							| Title
+						td
+							| Created On
+				tbody(data-bind="foreach: employeesList")
+					tr
+						td(data-bind="text: name")
+						td(data-bind="text: title")
+						td(data-bind="text: created_at")
+			a(href="/employee/new", class="btn btn-primary")!= "Add New Employee"

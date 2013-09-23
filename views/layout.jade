@@ -1,0 +1,22 @@
+doctype 5
+html
+	head
+	title= title
+	link(rel='stylesheet', href='/stylesheets/style.css')
+	link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+	script(src='/javascripts/jquery-1.8.2.min.js')
+	script(src='/javascripts/bootstrap.min.js')
+	script(src='/javascripts/knockout-2.2.0.js')
+	script(src='/javascripts/employeelist_viewmodel.js')
+	
+	body
+		if (!user)
+			p
+				a(href="/") Home |
+				a(href="/login") Log In
+		else
+			p
+				a(href="/") Home |
+				a(href="/account") Account | 
+				a(href="/logout") Log Out
+		block content
