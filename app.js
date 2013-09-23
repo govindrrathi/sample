@@ -15,8 +15,8 @@ var EmployeeProvider = require('./employeeprovider').EmployeeProvider;
 
 var app = express();
 
-var WINDOWS_LIVE_CLIENT_ID = "????"
-var WINDOWS_LIVE_CLIENT_SECRET = "????";
+var WINDOWS_LIVE_CLIENT_ID = "??"
+var WINDOWS_LIVE_CLIENT_SECRET = "??";
 
 // development only
 if ('development' == app.get('env')) {
@@ -106,11 +106,11 @@ app.get('/login', function (req, res) {
     res.render('login', { user: req.user });
 });
 
-app.get('/employee/new', function (req, res) {
-    res.render('employee_new', {
-        title: 'New Employee'
-    });
-});
+//app.get('/employee/new', function (req, res) {
+//    res.render('employee_new', {
+//        title: 'New Employee'
+//    });
+//});
 
 app.get('/employee/all', function (req, res) {
     employeeProvider.findAll(function (error, emps) {
@@ -120,11 +120,14 @@ app.get('/employee/all', function (req, res) {
 
 //save new employee
 app.post('/employee/new', function (req, res) {
+    console.log("Request type: " + req.xhr);
+
     employeeProvider.save({
         title: req.param('title'),
         name: req.param('name')
     }, function (error, docs) {
-        res.redirect('/')
+        if (!error)
+            res.json(200, {'success' : 'True'} );
     });
 });
 

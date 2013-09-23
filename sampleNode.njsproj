@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>9de559c5-f508-4eb1-b1fd-ac4aaa866f4a</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <StartupFile>app.js</StartupFile>
+    <ProjectTypeGuids>{262852C6-CD72-467D-83FE-5EEB1973A190};{F48CDB0C-A733-4163-8884-DCAA07CF69BF}</ProjectTypeGuids>
+    <Name>sampleNode</Name>
+    <RootNamespace>sampleNode</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="app.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="employeeprovider.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="package.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="public\images\one.JPG">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="public\images\two.JPG">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="public\javascripts\bootstrap.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="public\javascripts\employeelist_viewmodel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="public\javascripts\jquery-1.8.2.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="public\javascripts\knockout-2.2.0.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="public\stylesheets\bootstrap.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="public\stylesheets\bootstrap.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="public\stylesheets\style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="public\stylesheets\style.styl">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\account.jade">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\employee_new.jade">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\index.jade">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\layout.jade">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="views\login.jade">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="routes\index.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="routes\user.js">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="views" />
+    <Folder Include="public" />
+    <Folder Include="routes" />
+    <Folder Include="public\images" />
+    <Folder Include="public\javascripts" />
+    <Folder Include="public\stylesheets" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>

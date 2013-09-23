@@ -1,28 +1,41 @@
 extends layout
 
 block content
-	if (!user)
-		h2 Welcome! Please log in.
-	else
-		h2 
-			| Hello,
-			= ' ' + user.displayName
-
 		h1= title
-		div(id="emp_list")
-			span(data-bind="text: sample()")
-			table
-				thead
-					tr
-						td 
-							| Name
-						td
-							| Title
-						td
-							| Created On
-				tbody(data-bind="foreach: employeesList")
-					tr
-						td(data-bind="text: name")
-						td(data-bind="text: title")
-						td(data-bind="text: created_at")
-			a(href="/employee/new", class="btn btn-primary")!= "Add New Employee"
+		div.container(id="emp_manage")
+			div.row
+				div.span12
+					h3(data-bind="text: sample()")
+			div.row
+				div.span6
+					h2 
+						| Employee List
+					#emp_list
+						table
+							thead
+								tr
+									td 
+										| Name
+									td
+										| Title
+									td
+										| Created On
+							tbody(data-bind="foreach: employeesList")
+								tr
+									td(data-bind="text: name")
+									td(data-bind="text: title")
+									td(data-bind="text: created_at")
+				div.span6
+					h2 
+						| Add an employee
+					#newemployee
+						form( method="post")
+							div
+								div
+									span.label Title :
+									input(type="text", name="title", id="editEmployeeTitle", data-bind="value : curEmpTitle")
+								div
+									span.label Name :
+									input(type="text", name="name", id="editEmployeeName", data-bind="value : curEmpName")
+								div
+									a(href="#", class="btn btn-primary", data-bind="click: saveNewEmployee")!= "Save"

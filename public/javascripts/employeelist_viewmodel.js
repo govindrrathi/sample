@@ -1,8 +1,10 @@
-﻿var employeeListModel = function () {
+﻿employeeListModel = (function () {
     var self = this;
 
     self.sample = ko.observable("hi");
     self.employeesList = ko.observableArray();
+    self.curEmpTitle = ko.observable("Title");
+    self.curEmpName = ko.observable("Name");
 
     self.getAllEmployees = function () {
         $.ajax("/employee/all",
@@ -38,13 +40,30 @@
             });
     };
 
+    self.saveNewEmployee = function (data) {
+        var emp = { 'title': self.curEmpTitle(), 'name': self.curEmpName() }
+        $.ajax("/employee/new",
+            {
+                dataType: 'json',
+                contentType: "application/json",
+                data: JSON.stringify(emp),
+                cache: false,
+                type: 'post',
+                success: function (data) {
+                    if (data.success) {
+                        self.sample("Success");
+                        getAllEmployees();
+                    }
+                }
+            });
+    };
     //self.getAllEmployees();
 
-    //return self;
-};
+    return self;
+})();
 
 $(function () {
-    var model = new employeeListModel();
-    model.getAllEmployees();
-    ko.applyBindings(model, document.getElementById("emp_list"));
+    //var model = new employeeListModel();
+    employeeListModel.getAllEmployees();
+    ko.applyBindings(employeeListModel, document.getElementById("emp_manage"));
 })
